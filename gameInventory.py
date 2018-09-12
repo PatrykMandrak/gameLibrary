@@ -1,4 +1,3 @@
-
 inv = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1}
 
 def display_inventory(inventory):
@@ -8,9 +7,7 @@ def display_inventory(inventory):
             print (value, key)
     print("")
     print ("Number of items is: ", sum(inv.values()))
-
-#duppaaa
-
+#display_inventory(inv)
 def add_to_inventory(inventory, added_items):
     for item in added_items:
         item_count=inventory.get(item, 0)
@@ -19,7 +16,7 @@ def add_to_inventory(inventory, added_items):
 
 dragon_loot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
 inv = add_to_inventory(inv, dragon_loot)
-display_inventory(inv)
+#display_inventory(inv)
 
 
 x=max(inv, key=lambda x: len(x.split()))
@@ -54,14 +51,7 @@ def print_table(inventory, order=None):
 
         print (q.rjust(20, " "))
         print ("Number of items is: ", sum(inv.values()))
-
-#print_table(inv,"count,asc")
-
-
-# Imports new inventory items from a file
-# The filename comes as an argument, but by default it's
-# "import_inventory.csv". The import automatically merges items by name.
-# The file format is plain text with comma separated values (CSV).
+#print_table(inv)
 def import_inventory(inventory, filename="import_inventory.csv"):
     with open(filename) as file:
         added_items=file.read()
@@ -74,11 +64,6 @@ def import_inventory(inventory, filename="import_inventory.csv"):
             updated_inventory[item]=1
     return updated_inventory
 
-
-# Exports the inventory into a .csv file.
-# if the filename argument is None it creates and overwrites a file
-# called "export_inventory.csv". The file format is the same plain text
-# with comma separated values (CSV).
 def export_inventory(inventory, filename="export_inventory.csv"):
     text_to_export = ''
     for i in inventory:
